@@ -5,7 +5,6 @@ const input = document.querySelector("#inp");
 const closeBnt = document.querySelector('.modal-content span');
 const modal = document.querySelector('.modal');
 const editBtn = document.querySelector('.modal-content button');
-const activeModal = document.querySelector('.modal-active');
 const inputEdit = document.querySelector('.modal-content input');
 const errorText = 'Insira um valor válido';
 
@@ -48,7 +47,7 @@ editBtn.addEventListener('click', () => {
     if(!inputEdit.value.trim()) return
 
     const tarefas = JSON.parse(localStorage.getItem('tarefas'));
-    const index = activeModal.dataset.index
+    const index = document.querySelector('.modal-active').dataset.index
     const tarefasWithoutMe = [...tarefas];
     tarefasWithoutMe.splice(index, 1);
     if (tarefasWithoutMe.includes(inputEdit.value.trim()) === false) {
